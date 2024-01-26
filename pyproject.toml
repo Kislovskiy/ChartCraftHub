@@ -1,0 +1,23 @@
+#https://peps.python.org/pep-0621/#example
+
+[project]
+name = "ChartCraftHub"
+version = "0.1.0"
+description = "Code, debug, reuse this chart, workshop materials and more."
+license = {file = "LICENSE", name = "MIT"}
+dependencies = []
+
+authors = [
+    {name = "Artem Kislovskiy", email = "artem.kislovskiy@gmail.com"},
+    {name = "Teresa Kubacka", email = "teresa@xurce.ch"}
+]
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project.optional-dependencies]
+dev = [
+    "pytest==7.4.4",
+    "ruff==0.1.14"
+]
