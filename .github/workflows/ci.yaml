@@ -5,6 +5,10 @@ on:
 env:
   PYTHON_VERSION: 3.12.1
 
+defaults:
+  run:
+    shell: bash -el {0}
+
 jobs:
   lint:
     name: 🚨 Lint Python code
