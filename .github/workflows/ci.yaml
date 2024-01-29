@@ -25,3 +25,18 @@ jobs:
         run: make install
       - name: Lint
         run: make lint
+  test:
+    name: 🧪 Test Python code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python environment
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install dependencies
+        run: make install
+      - name: Test
+        run: make test
