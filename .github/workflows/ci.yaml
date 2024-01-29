@@ -22,9 +22,6 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
       - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install `'[.dev]'`
-      - name: Run Ruff
-        run:
-          ruff --check .
+        run: make install
+      - name: Lint
+        run: make lint
