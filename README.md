@@ -6,7 +6,10 @@
 ```shell
 $ python3 -m pip venv .venv
 $ source .venv/bin/activate
-$ python3 -m pip install --upgrade pip
-$ python3 -m pip install ".[dev]"
-$ python3 -m pip install --editable .
+$ make install
+```
+
+## Testing
+```shell
+$ make test
 ```
