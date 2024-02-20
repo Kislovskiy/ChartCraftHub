@@ -16,12 +16,6 @@ authors = [
     {name = "Teresa Kubacka", email = "teresa@xurce.ch"}
 ]
 
-[project.optional-dependencies]
-docs = [
-    "sphinx==7.2.6",
-    "furo==2024.01.29",
-]
-
 [build-system]
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
@@ -30,4 +24,8 @@ build-backend = "setuptools.build_meta"
 dev = [
     "pytest==7.4.4",
     "ruff==0.1.14"
+]
+docs = [
+    "sphinx==7.2.6",
+    "furo==2024.01.29",
 ]
