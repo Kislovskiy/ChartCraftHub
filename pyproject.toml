@@ -7,7 +7,7 @@ description = "Code, debug, reuse this chart, workshop materials and more."
 license = {file = "LICENSE", name = "MIT"}
 dependencies = [
     "jupyter==1.0.0",
-    "matplotlib==3.7.4",
+    "matplotlib==3.8.3",
     "numpy==1.26.4",
 ]
 
