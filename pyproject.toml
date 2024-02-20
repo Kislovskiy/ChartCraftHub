@@ -5,7 +5,11 @@ name = "ChartCraftHub"
 version = "0.1.0"
 description = "Code, debug, reuse this chart, workshop materials and more."
 license = {file = "LICENSE", name = "MIT"}
-dependencies = []
+dependencies = [
+    "jupyter==1.0.0",
+    "matplotlib==3.7.4",
+    "numpy==1.26.3",
+]
 
 authors = [
     {name = "Artem Kislovskiy", email = "artem.kislovskiy@gmail.com"},
