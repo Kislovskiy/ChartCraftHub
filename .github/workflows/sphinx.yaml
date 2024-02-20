@@ -17,7 +17,7 @@ jobs:
         fetch-depth: 0
     - name: Install dependencies
       run: |
-        pip install '.[docs]'
+        make install_docs
     - name: Sphinx build
       run: |
         cd docs

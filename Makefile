@@ -4,6 +4,10 @@ install:
 	python3 -m pip install ".[dev]"
 	python3 -m pip install --editable .
 
+.PHONY: install_docs
+install_docs:
+	python3 -m pip install ".[docs]"
+
 .PHONY: upgrade
 upgrade:
 	python3 -m pip install --upgrade .
