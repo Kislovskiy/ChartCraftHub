@@ -1,6 +1,9 @@
 name: "ChartCraftHub Lint"
 on:
   pull_request:
+  commit:
+    branches:
+      - trunk
 
 env:
   PYTHON_VERSION: 3.12.1
