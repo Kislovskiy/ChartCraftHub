@@ -9,35 +9,31 @@ env:
   PYTHON_VERSION: 3.12.1
 
 jobs:
+  setup:
+    name: 🛠️ Setup Python environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python environment
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      - name: Install dependencies
+        run: make install
   lint:
+    needs: setup
     name: 🚨 Lint Python code
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Python environment
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-      - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: 'pip'
-      - name: Install dependencies
-        run: make install
       - name: Lint
         run: make lint
   test:
+    needs: setup
     name: 🧪 Test Python code
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Python environment
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-      - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-          cache: 'pip'
-      - name: Install dependencies
-        run: make install
       - name: Test
         run: make test
