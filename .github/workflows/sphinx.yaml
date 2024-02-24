@@ -1,10 +1,15 @@
 name: "Sphinx: Render docs"
 
 on:
-  workflow_dispatch:
   push:
+    paths:
+      - "docs/**"
     branches:
       - trunk
+
+concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
 
 jobs:
   build:
