@@ -2,14 +2,22 @@ name: "ChartCraftHub Lint"
 on:
   pull_request:
   push:
+    paths:
+      - "**.py"
+    paths-ignore:
+      - "docs/**"
     branches:
       - trunk
+
+concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
 
 env:
   PYTHON_VERSION: 3.12.1
 
 jobs:
-  setup:
+  ci:
     name: 🛠️ Setup Python environment
     runs-on: ubuntu-latest
     steps:
@@ -23,17 +31,7 @@ jobs:
           cache: 'pip'
       - name: Install dependencies
         run: make install
-  lint:
-    needs: setup
-    name: 🚨 Lint Python code
-    runs-on: ubuntu-latest
-    steps:
       - name: Lint
         run: make lint
-  test:
-    needs: setup
-    name: 🧪 Test Python code
-    runs-on: ubuntu-latest
-    steps:
       - name: Test
         run: make test
