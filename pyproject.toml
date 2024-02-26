@@ -22,7 +22,7 @@ build-backend = "setuptools.build_meta"
 
 [project.optional-dependencies]
 dev = [
-    "pytest==8.0.1",
+    "pytest==8.0.2",
     "ruff==0.2.2"
 ]
 docs = [
