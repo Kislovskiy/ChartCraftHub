@@ -3,9 +3,6 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ChartCraftHub's documentation!
-=========================================
-
 .. image:: images/logo.svg
    :alt: Code, debug, reuse this chart logo
    :align: center
@@ -19,6 +16,27 @@ A home for "Code, debug, reuse this chart" workshop docs. The code is available 
    :alt: Code, debug, reuse this chart
    :align: center
 
+What is Matplotlib?
+-------------------
+
+`Matplotlib <https://github.com/matplotlib/matplotlib>`_ is a huge plotting library. In March 2024, the project has ``256024`` lines of code.
+
+.. code-block:: bash
+
+   ~/d/matplotlib ❯❯❯ find . -name "*.py" -exec cat {} + | wc -l
+   256024
+
+With approximately ``1114`` classes.
+
+.. code-block:: bash
+
+   ~/d/matplotlib ❯❯❯ find . -name "*.py" -exec grep -h '^\s*class\s\+' {} + | wc -l
+   1114
+
+It's a big and very flexible codebase to create any plots.
+And with a great power comes a bigger challenge to understand how to use it effectively.
+But before we dive into the code, let's ask ourselves a question:
+
 Why do we need a workshop about matplotlib in the era of Large Language Models and ChatGPT?
 -------------------------------------------------------------------------------------------
 
@@ -27,28 +45,20 @@ In the `keynote <https://youtu.be/yWhp2v9_UFc?si=h3LNdyIpQE9Vde2w>`_ titled "Tra
 At "Code, debug, reuse this chart" workshop Artem and Teresa will help you to build the mental model of matplotlib.
 This workshop aims to provide insights and skills that LLMs cannot offer: understanding how to utilize matplotlib and organize  Python visualization project for re-usability.
 
-
-Usage
+Setup
 -----
 
-Check out the :doc:`usage` section for further information, including how to
+Check out the :doc:`setup` section for further information, including how to
 :ref:`install <installation>` the project.
-
-Resources
----------
-* https://documentation.divio.com/
-* https://documentation.divio.com/tutorials.html#analogy-from-cooking
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 Contents
 --------
 
 .. toctree::
 
-   usage
+   setup
+
+Workshop Writing Resources
+--------------------------
+* https://documentation.divio.com/
+* https://documentation.divio.com/tutorials.html#analogy-from-cooking
