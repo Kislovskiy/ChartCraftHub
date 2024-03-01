@@ -9,6 +9,8 @@ dependencies = [
     "jupyter==1.0.0",
     "matplotlib==3.8.3",
     "numpy==1.26.4",
+    "aquarel==0.0.6",
+    "seaborn==0.13.2"
 ]
 
 authors = [

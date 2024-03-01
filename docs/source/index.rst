@@ -6,6 +6,10 @@
 Welcome to ChartCraftHub's documentation!
 =========================================
 
+.. image:: images/logo.svg
+   :alt: Code, debug, reuse this chart logo
+   :align: center
+
 .. note::
    The project is under active development. The documentation is not complete yet.
 
@@ -18,7 +22,7 @@ A home for "Code, debug, reuse this chart" workshop docs. The code is available 
 Why do we need a workshop about matplotlib in the era of Large Language Models and ChatGPT?
 -------------------------------------------------------------------------------------------
 
-In the `keynote <https://youtu.be/yWhp2v9_UFc?si=h3LNdyIpQE9Vde2w>`_ titled "Training the most important model" at PyConTH 2023, Naomi Ceder make a point, that our mental models of how code and applications work are vital to understanding the capabilities of our tools and fixing their problems when things go wrong.
+In the `keynote <https://youtu.be/yWhp2v9_UFc?si=h3LNdyIpQE9Vde2w>`_ titled "Training the most important model" at PyConTH 2023, Naomi Ceder made a point, that our mental models of how code and applications work are vital to understanding the capabilities of our tools and fixing their problems when things go wrong.
 
 At "Code, debug, reuse this chart" workshop Artem and Teresa will help you to build the mental model of matplotlib.
 This workshop aims to provide insights and skills that LLMs cannot offer: understanding how to utilize matplotlib and organize  Python visualization project for re-usability.
