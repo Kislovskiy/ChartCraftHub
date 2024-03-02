@@ -45,6 +45,11 @@ In the `keynote <https://youtu.be/yWhp2v9_UFc?si=h3LNdyIpQE9Vde2w>`_ titled "Tra
 At "Code, debug, reuse this chart" workshop Artem and Teresa will help you to build the mental model of matplotlib.
 This workshop aims to provide insights and skills that LLMs cannot offer: understanding how to utilize matplotlib and organize  Python visualization project for re-usability.
 
+After several attempts on making use of LLM for creating code for this tutorial, with an opinionated view, we could say that ChatGPT is very good in extrapolating words for matplotlib code generation.
+This often leads to a "spaghetti code".
+The task of condensing the generated content by summarizing and optimizing was almost always failed causing the divergent results and change in the visual output.
+This makes us to believe that there are still numerous opportunities for chart craftsmanship and this tutorial should help you to get the necessary skills.
+
 Setup
 -----
 
