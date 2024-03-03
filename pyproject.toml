@@ -31,3 +31,8 @@ docs = [
     "sphinx==7.2.6",
     "furo==2024.01.29",
 ]
+
+[tool.ruff]
+extend-include = [
+    "*.ipynb"
+]
