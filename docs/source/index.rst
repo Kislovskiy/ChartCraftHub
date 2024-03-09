@@ -61,9 +61,10 @@ Contents
 
 .. toctree::
 
+   intro
    setup
-
-Workshop Writing Resources
---------------------------
-* https://documentation.divio.com/
-* https://documentation.divio.com/tutorials.html#analogy-from-cooking
+   section_1
+   section_2
+   section_3
+   resources
+   terminology
