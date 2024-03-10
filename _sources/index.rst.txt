@@ -1,7 +1,3 @@
-.. image:: images/logo.svg
-   :alt: Code, debug, reuse this chart logo
-   :align: center
-
 .. note::
    The project is under active development. The documentation is not complete yet.
 
