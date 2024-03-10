@@ -198,24 +198,125 @@
         <article role="main">
           <section id="resources-and-tools-we-use">
 <h1>Resources and Tools We Use<a class="headerlink" href="#resources-and-tools-we-use" title="Link to this heading">#</a></h1>
-<section id="workshop-writing-resources">
-<span id="resources"></span><h2>Workshop Writing Resources<a class="headerlink" href="#workshop-writing-resources" title="Link to this heading">#</a></h2>
-<p>This section is written by Artem to remind himself of the resources he uses to write a workshop.
-He was inspired to start writing the tutorial after of Daniele Procida the autor of <a class="reference external" href="https://diataxis.fr/">Diátaxis</a>.</p>
-</section>
 <section id="matplotlib">
-<h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
+<span id="resources"></span><h2>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://matplotlib.org/cheatsheets/">Matplotlib cheatsheets</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/stable/users/explain/quick_start.html#making-a-helper-functions">Matplotlib making a helper function</a></p></li>
-<li><p><a class="reference external" href="https://github.com/matplotlib/matplotlib-extension-cookiecutter">Matplotlib has a cookiecutter template</a></p></li>
-<li><p><a class="reference external" href="https://github.com/rougier/scientific-visualization-book">Scientific Visualization: Python + Matplotlib</a></p></li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/rougier/scientific-visualization-book">Nicolas P. Rougier. Scientific Visualization: Python + Matplotlib</a></dt><dd><p>This book is one of Artem’s favorite resources.
+It covers many advanced topics with great detail.
+Rougier’s book is almost impossible to read quickly as each page makes you think.
+The chapter on Figure design is among Artem’s favorites.
+The book is available for free on GitHub.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://www.manning.com/books/math-for-programmers">Orland, Paul. Math for Programmers</a></dt><dd><p>The idea of using mathematics in this workshop came from Paul Orland’s book.
+The book is a great resource, and since many mathematical concepts reuse the same ideas, it became an excellent resource for writing a workshop on code reusability.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://nostarch.com/python-crash-course-3rd-edition">Matthes, Eric. Python crash course: A hands-on, project-based introduction to programming</a></dt><dd><p>It takes a lot of work to explain complex topics to beginners.
+Eric writes his books so that even experienced programmers can find something they didn’t know before.
+A Python crash course book has a chapter on data visualization and maptlotlib worth checking out.
+He also maintains several helpful cheat sheets, including one for Matplotlib, on his <a class="reference external" href="https://ehmatthes.github.io/pcc_3e/cheat_sheets/">website</a>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="libraries-build-on-top-of-matplotlib">
+<h2>Libraries build on top of Matplotlib<a class="headerlink" href="#libraries-build-on-top-of-matplotlib" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mwaskom/seaborn">seaborn</a></p></li>
+<li><p><a class="reference external" href="https://github.com/lgienapp/aquarel">aquarel</a></p></li>
 </ul>
 </section>
 <section id="advice-on-project-organization">
 <h2>Advice on project organization<a class="headerlink" href="#advice-on-project-organization" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p><a class="reference external" href="https://github.com/matplotlib/matplotlib-extension-cookiecutter">Matplotlib has a cookiecutter template</a></p></li>
 <li><p><a class="reference external" href="https://github.com/moldach/project-directory">Best Practices for Data Science Project Workflows and File Organization</a></p></li>
+</ul>
+</section>
+<section id="workshop-writing-resources">
+<h2>Workshop Writing Resources<a class="headerlink" href="#workshop-writing-resources" title="Link to this heading">#</a></h2>
+<p>Artem wrote this section to remind himself of the resources he used to write a workshop.
+He was inspired to start writing the tutorial after of Daniele Procida the autor of <a class="reference external" href="https://diataxis.fr/">Diátaxis</a>.</p>
+</section>
+<section id="quotes-from-books">
+<h2>Quotes from books<a class="headerlink" href="#quotes-from-books" title="Link to this heading">#</a></h2>
+<ul>
+<li><dl class="simple">
+<dt><a class="reference external" href="https://nostarch.com/python-crash-course-3rd-edition">Matthes, Eric. Python crash course: A hands-on, project-based introduction to programming</a></dt><dd><ul class="simple">
+<li><p>“One of the most popular tools is Matplotlib, a mathematical plotting library. In this chapter, we’ll use Matplotlib to make simple plots, such as line graphs and scatter plots.”</p></li>
+<li><p>“A colormap is a sequence of colors in a gradient that moves from a starting to an ending color.”</p></li>
+<li><p>“Matplotlib assumes your screen resolution is 100 pixels per inch; if this code doesn’t give you an accurate plot size, adjust the numbers as necessary. Or, if you know your system’s resolution, you can pass subplots() the resolution using the dpi parameter:”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Dale, Kyran. Data Visualization with Python and JavaScript. “ O’Reilly Media, Inc.”, 2022.</dt><dd><p>“Often the best chart for the job is a static chart where full editorial control lies with the creator.”</p>
+<p>“In essence, with OO Matplotlib we are dealing with a figure, which you can think of as a drawing canvas with one or more axes (or plots) embedded in it. Both figures and axes have properties that can be independently specified.”</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Knaflic, Cole Nussbaumer. Storytelling with data: A data visualization guide for business professionals. John Wiley &amp; Sons, 2015.</dt><dd><ul>
+<li><p>“Understanding and employing concepts like the 3-minute story, the Big Idea, and storyboarding will enable you to clearly and succinctly tell your story and identify the desired flow.”</p></li>
+<li><p>“The 3-minute story is exactly that: if you had only three minutes to tell your audience what they need to know, what would you say? This is a great way to ensure you are clear on and can articulate the story you want to tell.”</p></li>
+<li><p>“If you need to communicate multiple different units of measure, this is also typically easier with a table than a graph.”</p></li>
+<li><p>“If I had to pick a single go-to graph for categorical data, it would be the horizontal bar chart, which flips the vertical version on its side. Why? Because it is extremely easy to read.”</p></li>
+<li><p>“Kurt Vonnegut (author of novels such as Slaughterhouse-Five and Breakfast of Champions) outlined the following tips, which I’ve excerpted from his short article, “How to Write with Style” (a great quick read):</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Find a subject you care about. It is this genuine caring, and not your games with language, which will be the most compelling and seductive element in your style.</p></li>
+<li><p>Do not ramble, though.</p></li>
+<li><p>Keep it simple. Great masters wrote sentences which were almost childlike when their subjects were most profound. “To be or not to be?” asks Shakespeare’s Hamlet. The longest word is three letters.</p></li>
+<li><p>Have the guts to cut. If a sentence, no matter how excellent, does not illuminate your subject in some new and useful way, scratch it out.</p></li>
+<li><p>Sound like yourself. I myself find that I trust my own writing most, and others seem to trust it most, too, when I sound most like a person from Indianapolis, which is what I am.</p></li>
+<li><p>Say what you meant to say. If I broke all the rules of punctuation, had words mean whatever I wanted them to mean, and strung them together higgledy-piggledy, I would simply not be understood.</p></li>
+<li><p>Pity the readers. Our audience requires us to be sympathetic and patient teachers, ever willing to simplify and clarify.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>“Strategies for avoiding the spaghetti graph”</p></li>
+<li><p>“When presenting content in a live setting, you want to be able to walk your audience through the story, focusing on just the relevant part of the visual. However, the version that gets circulated to your audience—as a pre-read or takeaway, or for those who weren’t able to attend the meeting—needs to be able to stand on its own without you, the presenter, there to walk the audience through it.”</p></li>
+<li><p>“For example, I could start with a blank graph. This forces the audience to look at the graph details with you, rather than jump straight to the data and start trying to interpret it. You can use this approach to build anticipation within your audience that will help you to retain their attention. From there, I subsequently show or highlight only the data that is relevant to the specific point I am making, forcing the audience’s attention to be exactly where I want it as I am speaking.”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>VanderPlas, Jake. Python data science handbook: Essential tools for working with data. “ O’Reilly Media, Inc.”, 2016.</dt><dd><ul class="simple">
+<li><p>“Newer tools like ggplot and ggvis in the R language, along with web visualization toolkits based on D3js and HTML5 canvas, often make Matplotlib feel clunky and old-fashioned. Still, I’m of the opinion that we cannot ignore Matplotlib’s strength as a well-tested, cross-platform graphics engine.”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>McKinney, Wes. Python for data analysis. “ O’Reilly Media, Inc.”, 2022.</dt><dd><ul class="simple">
+<li><p>“matplotlib is a desktop plotting package designed for creating plots and figures suitable for publication. The project was started by John Hunter in 2002 to enable a MATLAB-like plotting interface in Python.”</p></li>
+<li><p>“Rather than use multiple visualization tools in this book, I decided to stick with matplotlib for teaching the fundamentals, in particular since pandas has good integration with matplotlib. You can adapt the principles from this chapter to learn how to use other visualization libraries as well.”</p></li>
+<li><p>“These plot axis objects have various methods that create different types of plots, and it is preferred to use the axis methods over the top-level plotting functions like plt.plot. For example, we could make a line plot with the plot method (see Figure 9-3):”</p></li>
+<li><p>“The axes class has a set method that allows batch setting of plot properties.”</p></li>
+<li><p>“To exclude one or more elements from the legend, pass no label or label=”_nolegend_”.”</p></li>
+<li><p>“that are geared primarily toward preparing figures for publication.”</p></li>
+<li><p>“As we’ll see in the next section, the seaborn package has several built-in plot themes or styles that use matplotlib’s configuration system internally.”</p></li>
+<li><p>“For creating static graphics for print or web, I recommend using matplotlib and libraries that build on matplotlib, like pandas and seaborn, for your needs. For other data visualization requirements, it may be useful to learn how to use one of the other available tools. I encourage you to explore the ecosystem as it continues to evolve and innovate into the future.”</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Johansson, R. Numerical Python: Scientific Computing and Data Science Applications with Numpy, SciPy and Matplotlib, Apress, Berkeley, CA, 2019.</dt><dd><p>The idea of showing multiple subplots next to each other to easily compare the different representation of the data.</p>
+</dd>
+</dl>
+</li>
 </ul>
 </section>
 </section>
@@ -276,9 +377,11 @@ He was inspired to start writing the tutorial after of Daniele Procida the autor
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Resources and Tools We Use</a><ul>
-<li><a class="reference internal" href="#workshop-writing-resources">Workshop Writing Resources</a></li>
 <li><a class="reference internal" href="#matplotlib">Matplotlib</a></li>
+<li><a class="reference internal" href="#libraries-build-on-top-of-matplotlib">Libraries build on top of Matplotlib</a></li>
 <li><a class="reference internal" href="#advice-on-project-organization">Advice on project organization</a></li>
+<li><a class="reference internal" href="#workshop-writing-resources">Workshop Writing Resources</a></li>
+<li><a class="reference internal" href="#quotes-from-books">Quotes from books</a></li>
 </ul>
 </li>
 </ul>
