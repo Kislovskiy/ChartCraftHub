@@ -27,3 +27,8 @@ exclude_patterns = []
 
 html_theme = "furo"
 html_static_path = ["_static"]
+html_logo = "images/logo.svg"
+html_theme_options = {
+    "sidebar_hide_name": True,
+}
+
