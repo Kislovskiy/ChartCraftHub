@@ -10,7 +10,8 @@ dependencies = [
     "matplotlib==3.8.3",
     "numpy==1.26.4",
     "aquarel==0.0.6",
-    "seaborn==0.13.2"
+    "seaborn==0.13.2",
+    "rich==13.7.1"
 ]
 
 authors = [
@@ -21,6 +22,9 @@ authors = [
 [build-system]
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
+
+[project.scripts]
+cch = "ChartCraftHub.__main__:fundamentals"
 
 [project.optional-dependencies]
 dev = [

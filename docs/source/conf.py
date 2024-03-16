@@ -20,6 +20,7 @@ extensions = [
 
 templates_path = ["_templates"]
 exclude_patterns = []
+html_css_files = ['custom.css']
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -31,4 +32,3 @@ html_logo = "images/logo.svg"
 html_theme_options = {
     "sidebar_hide_name": True,
 }
-

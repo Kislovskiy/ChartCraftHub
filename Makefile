@@ -25,3 +25,7 @@ lint:
 .PHONY: format
 format:
 	ruff format .
+
+.PHONY: docs
+docs:
+	cd docs; make html

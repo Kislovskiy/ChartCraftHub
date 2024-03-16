@@ -1,3 +1,4 @@
 from ChartCraftHub.core import fundamentals
 
-print(fundamentals())
+if __name__ == "__main__":
+    print(fundamentals())
