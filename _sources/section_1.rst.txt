@@ -80,5 +80,38 @@ The goal of Part 1 is to create a document with a figure using the same font pro
 
 TODO: link to the jupyter notebook.
 
+**Matplotlib Documentation Pointers:**
+
+* https://matplotlib.org/stable/gallery/subplots_axes_and_figures/figure_size_units.html#sphx-glr-gallery-subplots-axes-and-figures-figure-size-units-py
+
+* https://matplotlib.org/stable/gallery/text_labels_and_annotations/fonts_demo.html#sphx-glr-gallery-text-labels-and-annotations-fonts-demo-py
+
+* https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_file.html#sphx-glr-gallery-text-labels-and-annotations-font-file-py
+
+* https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_family_rc.html#sphx-glr-gallery-text-labels-and-annotations-font-family-rc-py
+
+* https://matplotlib.org/stable/gallery/text_labels_and_annotations/usetex_fonteffects.html#sphx-glr-gallery-text-labels-and-annotations-usetex-fonteffects-py
+
+Anatomy of a Figure
+~~~~~~~~~~~~~~~~~~~
+
+.. figure:: images/anatomy.png
+   :alt: Anatomy of a Figure by N. Rougier
+   :align: center
+   :width: 480
+   :height: 480
+
+   **Figure 3**. Anatomy of a Figure by N. Rougier (`source <https://github.com/rougier/scientific-visualization-book/blob/master/code/anatomy/anatomy.py>`_).
+
+
 Axes
 ~~~~
+
+* https://matplotlib.org/stable/gallery/axisartist/axis_direction.html#sphx-glr-gallery-axisartist-axis-direction-py
+
+* https://matplotlib.org/stable/gallery/axisartist/demo_axisline_style.html#sphx-glr-gallery-axisartist-demo-axisline-style-py
+
+Summary
+~~~~~~~
+
+
