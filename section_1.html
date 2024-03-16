@@ -6,11 +6,10 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="2. Efficient Figure Creation Tips: Abstracting Common Steps" href="section_2.html" /><link rel="prev" title="Setup" href="setup.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
-        <title>1. Exploring Matplotlib Internals: Figures, Axes, Lines, Patches, and More - ChartCraftHub 0.0.1 documentation</title>
+        <title>1. Exploring Matplotlib Internals: Figures, Axes, and More - ChartCraftHub 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=96948c04" />
     
     
 
@@ -160,9 +159,11 @@
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">1. Exploring Matplotlib Internals: Figures, Axes, Lines, Patches, and More</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">1. Exploring Matplotlib Internals: Figures, Axes, and More</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#in-this-section">In this section</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#figure">Figure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#part-1-working-with-figures-in-matplotlib">Part 1: Working with Figures in Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#axes">Axes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="section_2.html">2. Efficient Figure Creation Tips: Abstracting Common Steps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="section_3.html">3. Creating Portable Tools: Packaging Your Figure Creation Toolbox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources and Tools We Use</a></li>
@@ -201,14 +202,15 @@
           </label>
         </div>
         <article role="main">
-          <section id="exploring-matplotlib-internals-figures-axes-lines-patches-and-more">
-<h1>1. Exploring Matplotlib Internals: Figures, Axes, Lines, Patches, and More<a class="headerlink" href="#exploring-matplotlib-internals-figures-axes-lines-patches-and-more" title="Link to this heading">#</a></h1>
+          <section id="exploring-matplotlib-internals-figures-axes-and-more">
+<h1>1. Exploring Matplotlib Internals: Figures, Axes, and More<a class="headerlink" href="#exploring-matplotlib-internals-figures-axes-and-more" title="Link to this heading">#</a></h1>
 </section>
 <section id="in-this-section">
 <h1>In this section<a class="headerlink" href="#in-this-section" title="Link to this heading">#</a></h1>
 </section>
 <section id="figure">
 <h1>Figure<a class="headerlink" href="#figure" title="Link to this heading">#</a></h1>
+<p>According to the Oxford English Dictionary, the word “figure” has several meanings.</p>
 <p><strong>Figure</strong></p>
 <ul class="simple">
 <li><p><strong>n</strong>
@@ -221,7 +223,50 @@
 3. (<em>figure someone/thing out</em>) understand someone or something.
 4. think; consider.</p></li>
 </ul>
-<p>The standard Matplotlib tutorial starts with</p>
+<p>In many cases, figures do not exist in isolation, they appear in the text, presentation, or webpage.</p>
+<p>Have you ever noticed that in many places, figures look alien?
+They are very different than the rest of the environment they are placed in.</p>
+<p>Here is an example of such a figure:</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="images/default_figure.png"><img alt="Default Figure" src="images/default_figure.png" style="width: 640px; height: 480px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 1.</strong> A figure created with Matplotlib default settings.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The content is pixelated and hard to read. The figure below looks better.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="images/figure_sized.png"><img alt="Default Figure with adjusted size and font properties" src="images/figure_sized.png" style="width: 500px; height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>Figure 2.</strong> A figure with adjusted shape size and font size.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>There is still a tiny misalignment regarding fonts with the rest of the webpage.
+But this is quite a complex problem to align.
+Matplotlib excels in generating high-quality figures.</p>
+<p>In the context of this workshop, a Figure is an object with physical properties like width and height.
+It also contains axes, lines, fonts, and legends.</p>
+<p>You don’t need to be a designer to create pretty figures; start with the right Figure size and font properties.
+This should improve the overall integrity of the documents because the plots will look like they belong to the rest of the document.</p>
+<p>For example, here is a screenshot of a simple HTML page we’ll create in the first part of the workshop.
+Looks like LaTeX, right?
+But it is not; it is just an HTML page with an appropriately configured Matplotlib figure.</p>
+<figure class="align-center" id="id3">
+<img alt="example of html page with uniform font properties" src="images/cmf10_html_example.png" />
+<figcaption>
+<p><span class="caption-text"><strong>Figure 3</strong>. Plain HTML provides full control over the document’s look, making it easy to match the font properties of the figure and the webpage.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="part-1-working-with-figures-in-matplotlib">
+<h1>Part 1: Working with Figures in Matplotlib<a class="headerlink" href="#part-1-working-with-figures-in-matplotlib" title="Link to this heading">#</a></h1>
+<p>The figure is the central object of this workshop.
+In Matplotlib, the figure is the top-level object for all the plot elements.
+Mastering the figure object is crucial to creating high-quality visualizations that look nice in the context of the document.</p>
+<p>The goal of Part 1 is to create a document with a figure using the same font properties as the rest of the content.</p>
+<p>TODO: link to the jupyter notebook.</p>
+</section>
+<section id="axes">
+<h1>Axes<a class="headerlink" href="#axes" title="Link to this heading">#</a></h1>
 </section>
 
         </article>

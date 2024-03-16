@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'MonaSans';
-    src: url('../../../src/ChartCraftHub/fonts/MonaSans-Light.ttf') format('truetype');
-}
-
-body {
-    font-family: 'MonaSans', sans-serif;
-}
