@@ -35,7 +35,6 @@ Here is an example of such a figure:
    :alt: Default Figure
    :align: center
    :width: 640
-   :height: 480
 
    **Figure 1.** A figure created with Matplotlib default settings.
 
@@ -45,7 +44,6 @@ The content is pixelated and hard to read. The figure below looks better.
    :alt: Default Figure with adjusted size and font properties
    :align: center
    :width: 500
-   :height: 200
 
    **Figure 2.** A figure with adjusted shape size and font size.
 
@@ -66,6 +64,7 @@ But it is not; it is just an HTML page with an appropriately configured Matplotl
 .. figure:: images/cmf10_html_example.png
    :alt: example of html page with uniform font properties
    :align: center
+   :width: 398
 
    **Figure 3**. Plain HTML provides full control over the document's look, making it easy to match the font properties of the figure and the webpage.
 
@@ -99,7 +98,6 @@ Anatomy of a Figure
    :alt: Anatomy of a Figure by N. Rougier
    :align: center
    :width: 480
-   :height: 480
 
    **Figure 3**. Anatomy of a Figure by N. Rougier (`source <https://github.com/rougier/scientific-visualization-book/blob/master/code/anatomy/anatomy.py>`_).
 
