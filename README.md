@@ -1,10 +1,56 @@
-<img src="./docs/source/images/logo.svg" alt="drawing" width="400"/>
+# Chart Craft Hub
+
+<img src="https://raw.githubusercontent.com/Kislovskiy/ChartCraftHub/trunk/docs/source/images/logo.svg" alt="ChartCraftHub logo" width="400"/>
 
 ## Home for "Code, debug, reuse this chart" workshop materials
 "Code, debug, reuse this chart" will take place on 24th of March 2024 at 09:00 at Applied Machine Learning Days 2024 in Lausanne, Switzerland.
 
 
-![AMLD 2024](./docs/source/images/amld_code_debug_reuse_this_chart.png)
+![AMLD 2024](https://raw.githubusercontent.com/Kislovskiy/ChartCraftHub/trunk/docs/source/images/amld_code_debug_reuse_this_chart.png)
+
+## Installation
+
+You can install the materials for the workshop from [PyPI](https://pypi.org/project/chartcrafthub/):
+
+```shell
+$ python3.12 -m venv .venv
+$ souce .venv/bin/activate
+$ python -m pip install chartcrafthub
+```
+
+The workshop materials are created with Python3.12.
+
+## How to use
+
+To start the workshop, just import the `chartcrafthub` package and follow the instructions:
+
+```
+(.venv) ~/d/K/ChartCraftHub ❯❯❯ python -m chartcrafthub
+                                                                                                                      
+   _____ _                _     _____            __ _     _   _       _                                                       
+  /  __ \ |              | |   /  __ \          / _| |   | | | |     | |          
+  | /  \/ |__   __ _ _ __| |_  | /  \/_ __ __ _| |_| |_  | |_| |_   _| |__        
+  | |   | '_ \ / _` | '__| __| | |   | '__/ _` |  _| __| |  _  | | | | '_ \       
+  | \__/\ | | | (_| | |  | |_  | \__/\ | | (_| | | | |_  | | | | |_| | |_) |      
+   \____/_| |_|\__,_|_|   \__|  \____/_|  \__,_|_|  \__| \_| |_/\__,_|_.__/       
+                                                                                  
+                                                                                  
+Thanks for attending "Code, debug, reuse this chart" workshop!  
+                                                                                                                              
+In this workshop, you'll learn how to: 
+                                      
+✓ Craft visually compelling figures that enhance your document's overall appearance.  
+✓ Develop modular plotting functions utilizing matplotlib.  
+✓ Utilize Rich and debugging and method exploration. 
+✓ Organize your code for enhanced usability.  
+✓ Package your code for seamless portability.
+                                                                                                                              
+To begin, visit the documentation home page: https://kislovskiy.github.io/ChartCraftHub/]
+                                                                                                                              
+- Artem
+                                                                            
+                      Copy the great architectures. Edward Tufte 
+```
 
 ## Getting started
 
