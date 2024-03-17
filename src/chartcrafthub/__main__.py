@@ -2,7 +2,7 @@ from rich.console import Console
 from rich.table import Table
 from rich.text import Text
 
-from ChartCraftHub.core import fundamentals
+from chartcrafthub.core import fundamentals
 
 if __name__ == "__main__":
     table = Table.grid(padding=1, pad_edge=True)
