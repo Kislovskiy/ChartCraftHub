@@ -17,17 +17,17 @@ if __name__ == "__main__":
     table.add_row(f"[cyan]{chart_craft_hub_logo}")
 
     intro = Text.from_markup(
-        """Thanks for attending [italic]"Code, debug, reuse this chart"[/] ChartCraftHub!
+        """Thanks for attending [italic]"Code, debug, reuse this chart"[/] workshop!
 
-In this ChartCraftHub, you'll learn how to:
+In this workshop, you'll learn how to:
 
-* Craft visually compelling figures that enhance your document's overall appearance.
-* Develop modular plotting functions utilizing matplotlib.
-* Utilize Rich and debugging and method exploration.
-* Organize your code for enhanced usability.
-* Package your code for seamless portability.
+✓ Craft visually compelling figures that enhance your document's overall appearance.
+✓ Develop modular plotting functions utilizing matplotlib.
+✓ Utilize Rich and debugging and method exploration.
+✓ Organize your code for enhanced usability.
+✓ Package your code for seamless portability.
 
-To begin, visit the documentation home page:  https://kislovskiy.github.io/ChartCraftHub/
+To begin, visit the documentation home page: [u Blue]https://kislovskiy.github.io/ChartCraftHub/][/]
 
 - Artem
 """
