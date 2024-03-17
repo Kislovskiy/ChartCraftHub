@@ -12,7 +12,6 @@ ALIVE = "♥"
 DEAD = "‧"
 
 
-
 class LifeGrid:
     def __init__(self, pattern):
         self.pattern = pattern

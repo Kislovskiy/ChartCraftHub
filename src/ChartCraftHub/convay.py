@@ -118,12 +118,7 @@ def main():
 
     fig, ax = plt.subplots()
     img = ax.imshow(grid, interpolation="nearest")
-    ani = animation.FuncAnimation(
-        fig,
-        update,
-        fargs=(img, grid, N),
-        frames=10
-    )
+    ani = animation.FuncAnimation(fig, update, fargs=(img, grid, N), frames=10)
 
     if args.movfile:
         ani.save(args.movfile, fps=30, extra_args=["-vcodec", "libx264"])
