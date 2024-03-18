@@ -60,9 +60,13 @@ Contents
    resources
    terminology
 
-About the Autors
-----------------
+About the Authors
+-----------------
 
-Artem
+**Artem Kislovskiy** is a professional software engineer who is playing with computers for fun and profit.
+With a background in computational physics, Artem's journey into programming and data visualisation began during his academic pursuits.
+Having previously contributed to projects at EPFL, he remains actively engaged with the research community.
+Artem is a vice chair of EuroPython Society and a one of the organisers of EuroPython and EuroSciPy conferences.
+He resides in Lausanne with his wife and their beloved canine companion.
 
 Teresa
