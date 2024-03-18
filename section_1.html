@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="2. Efficient Figure Creation Tips: Abstracting Common Steps" href="section_2.html" /><link rel="prev" title="Setup" href="setup.html" />
 
     <!-- Generated with Sphinx 7.2.6 and Furo 2024.01.29 -->
-        <title>1. Exploring Matplotlib Internals: Figures, Axes, and More - ChartCraftHub 0.0.1 documentation</title>
+        <title>1. Exploring Matplotlib Internals: Figures, Axes, and More - ChartCraftHub 0.1.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">ChartCraftHub 0.0.1 documentation</div></a>
+      <a href="index.html"><div class="brand">ChartCraftHub 0.1.5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -268,7 +268,7 @@ Mastering the figure object is crucial to creating high-quality visualizations t
 <p>TODO: link to the jupyter notebook.</p>
 <p><strong>Matplotlib Documentation Pointers:</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/subplots_axes_and_figures/figure_size_units.html#sphx-glr-gallery-subplots-axes-and-figures-figure-size-units-py">https://matplotlib.org/stable/gallery/subplots_axes_and_figures/figure_size_units.html#sphx-glr-gallery-subplots-axes-and-figures-figure-size-units-py</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/subplots_axes_and_figures/figure_size_units.html#sphx-glr-gallery-subplots-axes-and-figures-figure-size-units-py">Figure size in different units</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/fonts_demo.html#sphx-glr-gallery-text-labels-and-annotations-fonts-demo-py">https://matplotlib.org/stable/gallery/text_labels_and_annotations/fonts_demo.html#sphx-glr-gallery-text-labels-and-annotations-fonts-demo-py</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_file.html#sphx-glr-gallery-text-labels-and-annotations-font-file-py">https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_file.html#sphx-glr-gallery-text-labels-and-annotations-font-file-py</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_family_rc.html#sphx-glr-gallery-text-labels-and-annotations-font-family-rc-py">https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_family_rc.html#sphx-glr-gallery-text-labels-and-annotations-font-family-rc-py</a></p></li>
@@ -290,9 +290,157 @@ Mastering the figure object is crucial to creating high-quality visualizations t
 <li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/axisartist/axis_direction.html#sphx-glr-gallery-axisartist-axis-direction-py">https://matplotlib.org/stable/gallery/axisartist/axis_direction.html#sphx-glr-gallery-axisartist-axis-direction-py</a></p></li>
 <li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/axisartist/demo_axisline_style.html#sphx-glr-gallery-axisartist-demo-axisline-style-py">https://matplotlib.org/stable/gallery/axisartist/demo_axisline_style.html#sphx-glr-gallery-axisartist-demo-axisline-style-py</a></p></li>
 </ul>
+<p>When you create a figure with <cite>plt.figure()</cite>, it is empty.
+You need to add axes to it to start plotting.
+<cite>plt.subplots()</cite> is another very common way to create a figure with axes in one go.</p>
+<p>But there is a catch.
+The Figure is the top-level object, but the Axes object is the one that holds the data and almost all visual elements of the plot.
+When we plot something, we are actually adding attributes to the Axes object.</p>
+<p>But how do I know that?</p>
+<p>That’s where <strong>debugging</strong> techiniqes come in handy.</p>
+<p>One of my favorite tools for exploring objects is the <a class="reference external" href="https://rich.readthedocs.io/en/stable/introduction.html">rich</a> library.
+<a class="reference external" href="https://rich.readthedocs.io/en/stable/reference/init.html?highlight=inspect#rich.inspect">Inspect</a> function is a fantastic debug aid that can be used to explore objects in Python.
+Take a figure object for an example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rich</span> <span class="kn">import</span> <span class="n">inspect</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="go">╭─────────────────────── &lt;class &#39;matplotlib.figure.Figure&#39;&gt; ────────────────────────╮</span>
+<span class="go">│ The top level container for all the plot elements.                                │</span>
+<span class="go">│                                                                                   │</span>
+<span class="go">│ ╭───────────────────────────────────────────────────────────────────────────────╮ │</span>
+<span class="go">│ │ &lt;Figure size 1280x960 with 0 Axes&gt;                                            │ │</span>
+<span class="go">│ ╰───────────────────────────────────────────────────────────────────────────────╯ │</span>
+<span class="go">│                                                                                   │</span>
+<span class="go">│           artists = []                                                            │</span>
+<span class="go">│              axes = []                                                            │</span>
+<span class="go">│              bbox = &lt;matplotlib.transforms.TransformedBbox object at 0x132cf3a40&gt; │</span>
+<span class="go">│       bbox_inches = Bbox([[0.0, 0.0], [6.4, 4.8]])                                │</span>
+<span class="go">│            canvas = FigureCanvas object 0x132e56b50 wrapping NSView 0x1437bb380   │</span>
+<span class="go">│           clipbox = None                                                          │</span>
+<span class="go">│               dpi = 200.0                                                         │</span>
+<span class="go">│   dpi_scale_trans = &lt;matplotlib.transforms.Affine2D object at 0x132e59ca0&gt;        │</span>
+<span class="go">│           figbbox = &lt;matplotlib.transforms.TransformedBbox object at 0x132cf3a40&gt; │</span>
+<span class="go">│            figure = &lt;Figure size 1280x960 with 0 Axes&gt;                            │</span>
+<span class="go">│           frameon = True                                                          │</span>
+<span class="go">│            images = []                                                            │</span>
+<span class="go">│           legends = []                                                            │</span>
+<span class="go">│             lines = []                                                            │</span>
+<span class="go">│         mouseover = False                                                         │</span>
+<span class="go">│            number = 2                                                             │</span>
+<span class="go">│             patch = &lt;matplotlib.patches.Rectangle object at 0x132e59be0&gt;          │</span>
+<span class="go">│           patches = []                                                            │</span>
+<span class="go">│             stale = False                                                         │</span>
+<span class="go">│      sticky_edges = _XYPair(x=[], y=[])                                           │</span>
+<span class="go">│           subfigs = []                                                            │</span>
+<span class="go">│       subplotpars = &lt;matplotlib.figure.SubplotParams object at 0x132e59b50&gt;       │</span>
+<span class="go">│ suppressComposite = None                                                          │</span>
+<span class="go">│             texts = []                                                            │</span>
+<span class="go">│       transFigure = &lt;matplotlib.transforms.BboxTransformTo object at 0x132e5b9e0&gt; │</span>
+<span class="go">│    transSubfigure = &lt;matplotlib.transforms.BboxTransformTo object at 0x132e5b9e0&gt; │</span>
+<span class="go">│            zorder = 0                                                             │</span>
+<span class="go">╰───────────────────────────────────────────────────────────────────────────────────╯</span>
+</pre></div>
+</div>
+<p>Or you could call <cite>inspect</cite> with <cite>methods</cite> set to <cite>True</cite> (<cite>inspect(fig, methods=True)</cite>) to list all the attributes and methods of the object.
+The output is parsed and formatted by the <cite>rich</cite> library, which makes it easy to read and understand.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rich</span> <span class="kn">import</span> <span class="n">inspect</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">inspect</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="go">╭──────────────────────────────── &lt;class &#39;matplotlib.axes._axes.Axes&#39;&gt; ─────────────────────────────────╮</span>
+<span class="go">│ An Axes object encapsulates all the elements of an individual (sub-)plot in                           │</span>
+<span class="go">│ a figure.                                                                                             │</span>
+<span class="go">│                                                                                                       │</span>
+<span class="go">│ ╭───────────────────────────────────────────────────────────────────────────────────────────────────╮ │</span>
+<span class="go">│ │ &lt;Axes: &gt;                                                                                          │ │</span>
+<span class="go">│ ╰───────────────────────────────────────────────────────────────────────────────────────────────────╯ │</span>
+<span class="go">│                                                                                                       │</span>
+<span class="go">│                     artists = &lt;Axes.ArtistList of 0 artists&gt;                                          │</span>
+<span class="go">│                        axes = &lt;Axes: &gt;                                                                │</span>
+<span class="go">│                      axison = True                                                                    │</span>
+<span class="go">│                        bbox = &lt;matplotlib.transforms.TransformedBbox object at 0x1330ce3c0&gt;           │</span>
+<span class="go">│                   callbacks = &lt;matplotlib.cbook.CallbackRegistry object at 0x1330cf8f0&gt;               │</span>
+<span class="go">│                  child_axes = []                                                                      │</span>
+<span class="go">│                     clipbox = None                                                                    │</span>
+<span class="go">│                 collections = &lt;Axes.ArtistList of 0 collections&gt;                                      │</span>
+<span class="go">│                  containers = []                                                                      │</span>
+<span class="go">│                     dataLim = Bbox([[inf, inf], [-inf, -inf]])                                        │</span>
+<span class="go">│                      figure = &lt;Figure size 1280x960 with 1 Axes&gt;                                      │</span>
+<span class="go">│                   fmt_xdata = None                                                                    │</span>
+<span class="go">│                   fmt_ydata = None                                                                    │</span>
+<span class="go">│ ignore_existing_data_limits = True                                                                    │</span>
+<span class="go">│                      images = &lt;Axes.ArtistList of 0 images&gt;                                           │</span>
+<span class="go">│                     legend_ = None                                                                    │</span>
+<span class="go">│                       lines = &lt;Axes.ArtistList of 0 lines&gt;                                            │</span>
+<span class="go">│                   mouseover = False                                                                   │</span>
+<span class="go">│                        name = &#39;rectilinear&#39;                                                           │</span>
+<span class="go">│                       patch = &lt;matplotlib.patches.Rectangle object at 0x13309cc80&gt;                    │</span>
+<span class="go">│                     patches = &lt;Axes.ArtistList of 0 patches&gt;                                          │</span>
+<span class="go">│                      spines = &lt;matplotlib.spines.Spines object at 0x1330ce780&gt;                        │</span>
+<span class="go">│                       stale = False                                                                   │</span>
+<span class="go">│                sticky_edges = _XYPair(x=[], y=[])                                                     │</span>
+<span class="go">│                      tables = &lt;Axes.ArtistList of 0 tables&gt;                                           │</span>
+<span class="go">│                       texts = &lt;Axes.ArtistList of 0 texts&gt;                                            │</span>
+<span class="go">│                       title = Text(0.5, 1.0, &#39;&#39;)                                                      │</span>
+<span class="go">│            titleOffsetTrans = &lt;matplotlib.transforms.ScaledTranslation object at 0x13309ff80&gt;         │</span>
+<span class="go">│                   transAxes = &lt;matplotlib.transforms.BboxTransformTo object at 0x132d2a570&gt;           │</span>
+<span class="go">│                   transData = &lt;matplotlib.transforms.CompositeGenericTransform object at 0x1330ceb70&gt; │</span>
+<span class="go">│                 transLimits = &lt;matplotlib.transforms.BboxTransformFrom object at 0x1330ce150&gt;         │</span>
+<span class="go">│                  transScale = &lt;matplotlib.transforms.TransformWrapper object at 0x1330ce810&gt;          │</span>
+<span class="go">│            use_sticky_edges = True                                                                    │</span>
+<span class="go">│                     viewLim = Bbox([[0.0, 0.0], [1.0, 1.0]])                                          │</span>
+<span class="go">│                       xaxis = &lt;matplotlib.axis.XAxis object at 0x1330cef00&gt;                           │</span>
+<span class="go">│                       yaxis = &lt;matplotlib.axis.YAxis object at 0x1330cd370&gt;                           │</span>
+<span class="go">│                      zorder = 0                                                                       │</span>
+<span class="go">╰───────────────────────────────────────────────────────────────────────────────────────────────────────╯</span>
+</pre></div>
+</div>
+<p>With this you are equipped to start exploring any codebase and understand how it works.
+We’ll do it with Matplotlib.</p>
+<p>TODO: link to the jupyter notebook section2.</p>
 </section>
 <section id="summary">
 <h1>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h1>
+<p>We’ve learned about two most powerful objects in Matplotlib: Figure and Axes.
+They are always coming toghether and are the foundation of any plot.</p>
+<p>There are two most important things I want you to remember:</p>
+<p>First:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;font.family&quot;</span><span class="p">:</span> <span class="s2">&quot;sans-serif&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;font.sans-serif&quot;</span><span class="p">:</span> <span class="s2">&quot;cmr10&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;font.size&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="s2">&quot;axes.formatter.use_mathtext&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;results/hello_world.svg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note: that the font should be installed on your system.
+One gotcha is that matplotlib stores fonts available on your system in .matplotlib folder in your home directory.
+To see the newly installed font, you need to remove the font cache file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>~<span class="w"> </span>❯❯❯<span class="w"> </span>la<span class="w"> </span>.matplotlib
+Permissions<span class="w"> </span>Size<span class="w"> </span>User<span class="w">       </span>Date<span class="w"> </span>Modified<span class="w"> </span>Name
+.rw-r--r--@<span class="w"> </span>140k<span class="w"> </span>kislovskiy<span class="w"> </span><span class="m">15</span><span class="w"> </span>Mar<span class="w"> </span><span class="m">22</span>:11<span class="w">  </span>fontlist-v330.json
+</pre></div>
+</div>
+<p>Second:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">rich</span> <span class="kn">import</span> <span class="n">inspect</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">inspect</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -344,7 +492,7 @@ Mastering the figure object is crucial to creating high-quality visualizations t
       
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=d45e8c67"></script>
+</div><script src="_static/documentation_options.js?v=59fadc99"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=32e29ea5"></script>
