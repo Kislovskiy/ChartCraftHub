@@ -37,7 +37,7 @@ cch = "chartcrafthub.__main__:fundamentals"
 build = ["build", "twine"]
 dev = [
     "pytest==8.0.2",
-    "ruff==0.3.0",
+    "ruff==0.3.3",
     "bumpver==2023.1129"
 ]
 docs = [
