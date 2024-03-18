@@ -1,10 +1,14 @@
 1. Exploring Matplotlib Internals: Figures, Axes, and More
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================================================
 .. section_1:
 
 In this section
 ~~~~~~~~~~~~~~~
 
+We will learn how to create figures consistent with the rest of the document.
+A consistent figure is one that has the same font properties, proper size, and resolution.
+We will use the `rich` library to inspect matplotlib objects when exploring the properties.
+And learn a lot about matplotlib Figure and Axis objects.
 
 Figure
 ~~~~~~
@@ -83,13 +87,13 @@ TODO: link to the jupyter notebook.
 
 * `Figure size in different units <https://matplotlib.org/stable/gallery/subplots_axes_and_figures/figure_size_units.html#sphx-glr-gallery-subplots-axes-and-figures-figure-size-units-py>`_
 
-* https://matplotlib.org/stable/gallery/text_labels_and_annotations/fonts_demo.html#sphx-glr-gallery-text-labels-and-annotations-fonts-demo-py
+* `Fonts demo (object-oriented style) <https://matplotlib.org/stable/gallery/text_labels_and_annotations/fonts_demo.html#sphx-glr-gallery-text-labels-and-annotations-fonts-demo-py>`_
 
-* https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_file.html#sphx-glr-gallery-text-labels-and-annotations-font-file-py
+* `Using ttf font files <https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_file.html#sphx-glr-gallery-text-labels-and-annotations-font-file-py>`_
 
-* https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_family_rc.html#sphx-glr-gallery-text-labels-and-annotations-font-family-rc-py
+* `Configuring the font family <https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_family_rc.html#sphx-glr-gallery-text-labels-and-annotations-font-family-rc-py>`_
 
-* https://matplotlib.org/stable/gallery/text_labels_and_annotations/usetex_fonteffects.html#sphx-glr-gallery-text-labels-and-annotations-usetex-fonteffects-py
+* `Usetex Fonteffects <https://matplotlib.org/stable/gallery/text_labels_and_annotations/usetex_fonteffects.html#sphx-glr-gallery-text-labels-and-annotations-usetex-fonteffects-py>`_
 
 Anatomy of a Figure
 ~~~~~~~~~~~~~~~~~~~
@@ -105,9 +109,11 @@ Anatomy of a Figure
 Axes
 ~~~~
 
-* https://matplotlib.org/stable/gallery/axisartist/axis_direction.html#sphx-glr-gallery-axisartist-axis-direction-py
+Axes != Axis. Here are some doc links:
 
-* https://matplotlib.org/stable/gallery/axisartist/demo_axisline_style.html#sphx-glr-gallery-axisartist-demo-axisline-style-py
+* `Axis <https://matplotlib.org/stable/gallery/axisartist/axis_direction.html#sphx-glr-gallery-axisartist-axis-direction-py>`_
+
+* `Axis line styles <https://matplotlib.org/stable/gallery/axisartist/demo_axisline_style.html#sphx-glr-gallery-axisartist-demo-axisline-style-py>`_
 
 When you create a figure with `plt.figure()`, it is empty.
 You need to add axes to it to start plotting.
@@ -119,7 +125,7 @@ When we plot something, we are actually adding attributes to the Axes object.
 
 But how do I know that?
 
-That's where **debugging** techiniqes come in handy.
+That's where **debugging** techniques come in handy.
 
 One of my favorite tools for exploring objects is the `rich <https://rich.readthedocs.io/en/stable/introduction.html>`_ library.
 `Inspect <https://rich.readthedocs.io/en/stable/reference/init.html?highlight=inspect#rich.inspect>`_ function is a fantastic debug aid that can be used to explore objects in Python.

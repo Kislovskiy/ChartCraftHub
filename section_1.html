@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -160,12 +160,6 @@
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">1. Exploring Matplotlib Internals: Figures, Axes, and More</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#in-this-section">In this section</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#figure">Figure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#part-1-working-with-figures-in-matplotlib">Part 1: Working with Figures in Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#anatomy-of-a-figure">Anatomy of a Figure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#axes">Axes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#summary">Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="section_2.html">2. Efficient Figure Creation Tips: Abstracting Common Steps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="section_3.html">3. Creating Portable Tools: Packaging Your Figure Creation Toolbox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources and Tools We Use</a></li>
@@ -198,7 +192,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -206,12 +200,15 @@
         <article role="main">
           <section id="exploring-matplotlib-internals-figures-axes-and-more">
 <h1>1. Exploring Matplotlib Internals: Figures, Axes, and More<a class="headerlink" href="#exploring-matplotlib-internals-figures-axes-and-more" title="Link to this heading">#</a></h1>
-</section>
 <section id="in-this-section">
-<h1>In this section<a class="headerlink" href="#in-this-section" title="Link to this heading">#</a></h1>
+<h2>In this section<a class="headerlink" href="#in-this-section" title="Link to this heading">#</a></h2>
+<p>We will learn how to create figures consistent with the rest of the document.
+A consistent figure is one that has the same font properties, proper size, and resolution.
+We will use the <cite>rich</cite> library to inspect matplotlib objects when exploring the properties.
+And learn a lot about matplotlib Figure and Axis objects.</p>
 </section>
 <section id="figure">
-<h1>Figure<a class="headerlink" href="#figure" title="Link to this heading">#</a></h1>
+<h2>Figure<a class="headerlink" href="#figure" title="Link to this heading">#</a></h2>
 <p>According to the Oxford English Dictionary, the word “figure” has several meanings.</p>
 <p><strong>Figure</strong></p>
 <ul class="simple">
@@ -260,7 +257,7 @@ But it is not; it is just an HTML page with an appropriately configured Matplotl
 </figure>
 </section>
 <section id="part-1-working-with-figures-in-matplotlib">
-<h1>Part 1: Working with Figures in Matplotlib<a class="headerlink" href="#part-1-working-with-figures-in-matplotlib" title="Link to this heading">#</a></h1>
+<h2>Part 1: Working with Figures in Matplotlib<a class="headerlink" href="#part-1-working-with-figures-in-matplotlib" title="Link to this heading">#</a></h2>
 <p>The figure is the central object of this workshop.
 In Matplotlib, the figure is the top-level object for all the plot elements.
 Mastering the figure object is crucial to creating high-quality visualizations that look nice in the context of the document.</p>
@@ -269,14 +266,14 @@ Mastering the figure object is crucial to creating high-quality visualizations t
 <p><strong>Matplotlib Documentation Pointers:</strong></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/subplots_axes_and_figures/figure_size_units.html#sphx-glr-gallery-subplots-axes-and-figures-figure-size-units-py">Figure size in different units</a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/fonts_demo.html#sphx-glr-gallery-text-labels-and-annotations-fonts-demo-py">https://matplotlib.org/stable/gallery/text_labels_and_annotations/fonts_demo.html#sphx-glr-gallery-text-labels-and-annotations-fonts-demo-py</a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_file.html#sphx-glr-gallery-text-labels-and-annotations-font-file-py">https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_file.html#sphx-glr-gallery-text-labels-and-annotations-font-file-py</a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_family_rc.html#sphx-glr-gallery-text-labels-and-annotations-font-family-rc-py">https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_family_rc.html#sphx-glr-gallery-text-labels-and-annotations-font-family-rc-py</a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/usetex_fonteffects.html#sphx-glr-gallery-text-labels-and-annotations-usetex-fonteffects-py">https://matplotlib.org/stable/gallery/text_labels_and_annotations/usetex_fonteffects.html#sphx-glr-gallery-text-labels-and-annotations-usetex-fonteffects-py</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/fonts_demo.html#sphx-glr-gallery-text-labels-and-annotations-fonts-demo-py">Fonts demo (object-oriented style)</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_file.html#sphx-glr-gallery-text-labels-and-annotations-font-file-py">Using ttf font files</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/font_family_rc.html#sphx-glr-gallery-text-labels-and-annotations-font-family-rc-py">Configuring the font family</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/usetex_fonteffects.html#sphx-glr-gallery-text-labels-and-annotations-usetex-fonteffects-py">Usetex Fonteffects</a></p></li>
 </ul>
 </section>
 <section id="anatomy-of-a-figure">
-<h1>Anatomy of a Figure<a class="headerlink" href="#anatomy-of-a-figure" title="Link to this heading">#</a></h1>
+<h2>Anatomy of a Figure<a class="headerlink" href="#anatomy-of-a-figure" title="Link to this heading">#</a></h2>
 <figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="_images/anatomy.png"><img alt="Anatomy of a Figure by N. Rougier" src="_images/anatomy.png" style="width: 480px;" /></a>
 <figcaption>
@@ -285,10 +282,11 @@ Mastering the figure object is crucial to creating high-quality visualizations t
 </figure>
 </section>
 <section id="axes">
-<h1>Axes<a class="headerlink" href="#axes" title="Link to this heading">#</a></h1>
+<h2>Axes<a class="headerlink" href="#axes" title="Link to this heading">#</a></h2>
+<p>Axes != Axis. Here are some doc links:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/axisartist/axis_direction.html#sphx-glr-gallery-axisartist-axis-direction-py">https://matplotlib.org/stable/gallery/axisartist/axis_direction.html#sphx-glr-gallery-axisartist-axis-direction-py</a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/axisartist/demo_axisline_style.html#sphx-glr-gallery-axisartist-demo-axisline-style-py">https://matplotlib.org/stable/gallery/axisartist/demo_axisline_style.html#sphx-glr-gallery-axisartist-demo-axisline-style-py</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/axisartist/axis_direction.html#sphx-glr-gallery-axisartist-axis-direction-py">Axis</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/axisartist/demo_axisline_style.html#sphx-glr-gallery-axisartist-demo-axisline-style-py">Axis line styles</a></p></li>
 </ul>
 <p>When you create a figure with <cite>plt.figure()</cite>, it is empty.
 You need to add axes to it to start plotting.
@@ -297,7 +295,7 @@ You need to add axes to it to start plotting.
 The Figure is the top-level object, but the Axes object is the one that holds the data and almost all visual elements of the plot.
 When we plot something, we are actually adding attributes to the Axes object.</p>
 <p>But how do I know that?</p>
-<p>That’s where <strong>debugging</strong> techiniqes come in handy.</p>
+<p>That’s where <strong>debugging</strong> techniques come in handy.</p>
 <p>One of my favorite tools for exploring objects is the <a class="reference external" href="https://rich.readthedocs.io/en/stable/introduction.html">rich</a> library.
 <a class="reference external" href="https://rich.readthedocs.io/en/stable/reference/init.html?highlight=inspect#rich.inspect">Inspect</a> function is a fantastic debug aid that can be used to explore objects in Python.
 Take a figure object for an example:</p>
@@ -401,7 +399,7 @@ We’ll do it with Matplotlib.</p>
 <p>TODO: link to the jupyter notebook section2.</p>
 </section>
 <section id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h1>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>We’ve learned about two most powerful objects in Matplotlib: Figure and Axes.
 They are always coming toghether and are the foundation of any plot.</p>
 <p>There are two most important things I want you to remember:</p>
@@ -441,6 +439,7 @@ Permissions<span class="w"> </span>Size<span class="w"> </span>User<span class="
 <span class="n">inspect</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
 </section>
 
         </article>
@@ -486,8 +485,32 @@ Permissions<span class="w"> </span>Size<span class="w"> </span>User<span class="
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">1. Exploring Matplotlib Internals: Figures, Axes, and More</a><ul>
+<li><a class="reference internal" href="#in-this-section">In this section</a></li>
+<li><a class="reference internal" href="#figure">Figure</a></li>
+<li><a class="reference internal" href="#part-1-working-with-figures-in-matplotlib">Part 1: Working with Figures in Matplotlib</a></li>
+<li><a class="reference internal" href="#anatomy-of-a-figure">Anatomy of a Figure</a></li>
+<li><a class="reference internal" href="#axes">Axes</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

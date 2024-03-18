@@ -160,12 +160,6 @@
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="section_1.html">1. Exploring Matplotlib Internals: Figures, Axes, and More</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_1.html#in-this-section">In this section</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_1.html#figure">Figure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_1.html#part-1-working-with-figures-in-matplotlib">Part 1: Working with Figures in Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_1.html#anatomy-of-a-figure">Anatomy of a Figure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_1.html#axes">Axes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="section_1.html#summary">Summary</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">2. Efficient Figure Creation Tips: Abstracting Common Steps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="section_3.html">3. Creating Portable Tools: Packaging Your Figure Creation Toolbox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources and Tools We Use</a></li>
@@ -208,8 +202,22 @@
 <h1>2. Efficient Figure Creation Tips: Abstracting Common Steps<a class="headerlink" href="#efficient-figure-creation-tips-abstracting-common-steps" title="Link to this heading">#</a></h1>
 <section id="in-this-section">
 <span id="section-2"></span><h2>In this section<a class="headerlink" href="#in-this-section" title="Link to this heading">#</a></h2>
-<p>We will encapsulate common plotting patterns to functions.
-This will allow us to create complex figures with less code.</p>
+<p>We will encapsulate common plotting patterns into functions.
+This will allow us to create complex figures with less code.
+Plus, it makes experiments more enjoyable and less error-prone.</p>
+</section>
+<section id="creating-abstractions">
+<h2>Creating abstractions<a class="headerlink" href="#creating-abstractions" title="Link to this heading">#</a></h2>
+<p>There is nothing wrong with starting with a new script whenever you want to create a new figure.
+However, as time passes, you will notice you are repeating yourself.
+At the same time, maintaining your code is getting harder and harder.
+You’ll discover something cool and new, and you would also like the older code to benefit from it.</p>
+<p>The solution for this is to review your code refactor often.
+Let’s take a practical look at this.</p>
+<p>TODO: Add a notebook where we’ll draw a dinosaur and add some linear algebra.</p>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -270,6 +278,10 @@ This will allow us to create complex figures with less code.</p>
             <ul>
 <li><a class="reference internal" href="#">2. Efficient Figure Creation Tips: Abstracting Common Steps</a><ul>
 <li><a class="reference internal" href="#in-this-section">In this section</a></li>
+<li><a class="reference internal" href="#creating-abstractions">Creating abstractions</a><ul>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
