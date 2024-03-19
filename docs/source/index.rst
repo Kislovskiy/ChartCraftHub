@@ -69,4 +69,5 @@ Having previously contributed to projects at EPFL, he remains actively engaged w
 Artem is a vice chair of EuroPython Society and a one of the organisers of EuroPython and EuroSciPy conferences.
 He resides in Lausanne with his wife and their beloved canine companion.
 
-Teresa
+**Teresa Kubacka** is a data scientist and software engineer with a background in physics and a passion for data visualization.
+She originally contacted Artem with an idea to create a workshop about matplotlib.
