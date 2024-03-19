@@ -1,4 +1,4 @@
-from ChartCraftHub.core import fundamentals
+from chartcrafthub.core import fundamentals
 
 
 def test_fundamentals() -> None:
