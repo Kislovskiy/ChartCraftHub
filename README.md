@@ -55,7 +55,7 @@ To begin, visit the documentation home page: https://kislovskiy.github.io/ChartC
 ## Getting started
 
 There are three ways to follow this tutorial:
-* [Dev Containers](#dev-containers-recommended) if you have Docker and Visual Studio Code installed
+* [Dev Containers](#dev-containers) if you have Docker and Visual Studio Code installed
 * [GitHub Codespaces](#github-codespaces) if you don't want to install anything on your local machine
 * [Local installation](#local-installation) if you are a fan of local development.
 
