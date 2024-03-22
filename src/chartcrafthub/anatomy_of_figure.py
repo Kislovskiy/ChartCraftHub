@@ -1,161 +1,144 @@
-# ----------------------------------------------------------------------------
-# Title:   Scientific Visualisation - Python & Matplotlib
-# Author:  Nicolas P. Rougier
-# License: BSD
-# ----------------------------------------------------------------------------
+"""
+This script generates an image of the anatomy of a figure in Matplotlib.
+
+Original Script Information:
+Title: Scientific Visualization - Python & Matplotlib
+Author: Nicolas P. Rougier
+License: BSD
+
+Modifications:
+- Extracted the code into a function that could be imported or run as a script
+- Refactored the code to improve readability
+- Formatted the code using Ruff
+
+Modified by: Artem Kislovskiy
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.patches import Circle
+from matplotlib.patheffects import withStroke
 from matplotlib.ticker import AutoMinorLocator, MultipleLocator, FuncFormatter
 
-np.random.seed(123)
 
-X = np.linspace(0.5, 3.5, 100)
-Y1 = 3 + np.cos(X)
-Y2 = 1 + np.cos(1 + X / 0.75) / 2
-Y3 = np.random.uniform(Y1, Y2, len(X))
-
-fig = plt.figure(figsize=(8, 8))
-ax = fig.add_subplot(1, 1, 1, aspect=1)
+def format_minor_tick_value(value, _):
+    return "%.2f" % value if value % 1 else ""
 
 
-def minor_tick(x, pos):
-    if not x % 1.0:
-        return ""
-    return "%.2f" % x
+def generate_data():
+    np.random.seed(123)
+    x = np.linspace(0.5, 3.5, 100)
+    y1 = 3 + np.cos(x)
+    y2 = 1 + np.cos(1 + x / 0.75) / 2
+    y3 = np.random.uniform(y1, y2, len(x))
+    return x, y1, y2, y3
 
 
-ax.xaxis.set_major_locator(MultipleLocator(1.000))
-ax.xaxis.set_minor_locator(AutoMinorLocator(4))
-ax.yaxis.set_major_locator(MultipleLocator(1.000))
-ax.yaxis.set_minor_locator(AutoMinorLocator(4))
-ax.xaxis.set_minor_formatter(FuncFormatter(minor_tick))
-
-ax.set_xlim(0, 4)
-ax.set_ylim(0, 4)
-
-ax.tick_params(which="major", width=1.0)
-ax.tick_params(which="major", length=10)
-ax.tick_params(which="minor", width=1.0, labelsize=10)
-ax.tick_params(which="minor", length=5, labelsize=10, labelcolor="0.25")
-
-ax.grid(linestyle="--", linewidth=0.5, color=".25", zorder=-10)
-
-ax.plot(X, Y1, c=(0.25, 0.25, 1.00), lw=2, label="Blue signal", zorder=10)
-ax.plot(X, Y2, c=(1.00, 0.25, 0.25), lw=2, label="Red signal")
-ax.plot(X, Y3, linewidth=0, marker="o", markerfacecolor="w", markeredgecolor="k")
-
-ax.set_title("Anatomy of a figure", fontsize=20, verticalalignment="bottom")
-ax.set_xlabel("X axis label")
-ax.set_ylabel("Y axis label")
-
-ax.legend()
+def setup_plot():
+    figure = plt.figure(figsize=(8, 8))
+    ax = figure.add_subplot(1, 1, 1, aspect=1)
+    ax.set_xlim(0, 4)
+    ax.set_ylim(0, 4)
+    return figure, ax
 
 
-def circle(x, y, radius=0.15):
-    from matplotlib.patches import Circle
-    from matplotlib.patheffects import withStroke
-
-    circle = Circle(
-        (x, y),
-        radius,
-        clip_on=False,
-        zorder=10,
-        linewidth=1,
-        edgecolor="black",
-        facecolor=(0, 0, 0, 0.0125),
-        path_effects=[withStroke(linewidth=5, foreground="w")],
-    )
-    ax.add_artist(circle)
+def set_major_minor_ticks(ax: plt.Axes) -> None:
+    ax.xaxis.set_major_locator(MultipleLocator(1.0))
+    ax.xaxis.set_minor_locator(AutoMinorLocator(4))
+    ax.yaxis.set_major_locator(MultipleLocator(1.0))
+    ax.yaxis.set_minor_locator(AutoMinorLocator(4))
+    ax.xaxis.set_minor_formatter(FuncFormatter(format_minor_tick_value))
 
 
-def text(x, y, text):
-    ax.text(
-        x,
-        y,
-        text,
-        backgroundcolor="white",
-        # fontname="Yanone Kaffeesatz", fontsize="large",
-        ha="center",
-        va="top",
+def customize_ticks_and_grid(ax: plt.Axes) -> None:
+    ax.tick_params(which="major", width=1.0, length=10)
+    ax.tick_params(which="minor", width=1.0, length=5, labelsize=10, labelcolor="0.25")
+    ax.grid(linestyle="--", linewidth=0.5, color=".25", zorder=-10)
+
+
+def plot_signals(ax, x, y1, y2, y3):
+    ax.plot(x, y1, c=(0.25, 0.25, 1.00), lw=2, label="Blue signal", zorder=10)
+    ax.plot(x, y2, c=(1.00, 0.25, 0.25), lw=2, label="Red signal")
+    ax.plot(x, y3, linewidth=0, marker="o", markerfacecolor="w", markeredgecolor="k")
+
+
+def add_annotations(ax: plt.Axes) -> None:
+    annotations = [
+        (0.50, -0.10, "Minor tick label"),
+        (-0.03, 4.00, "Major tick"),
+        (0.00, 3.50, "Minor tick"),
+        (-0.15, 3.00, "Major tick label"),
+        (1.80, -0.27, "X axis label"),
+        (-0.27, 1.80, "Y axis label"),
+        (1.60, 4.13, "Title"),
+        (1.75, 2.80, "Line\n(line plot)"),
+        (1.20, 0.60, "Line\n(line plot)"),
+        (3.20, 1.75, "Markers\n(scatter plot)"),
+        (3.00, 3.00, "Grid"),
+        (3.70, 3.80, "Legend"),
+        (0.5, 0.5, "Axes"),
+        (-0.3, 0.65, "Figure"),
+    ]
+
+    for x, y, text in annotations:
+        circle = Circle(
+            (x, y),
+            0.15,
+            clip_on=False,
+            zorder=10,
+            linewidth=1,
+            edgecolor="black",
+            facecolor=(0, 0, 0, 0.0125),
+            path_effects=[withStroke(linewidth=5, foreground="w")],
+        )
+        ax.add_artist(circle)
+        ax.text(
+            x,
+            y - 0.2,
+            text,
+            backgroundcolor="white",
+            ha="center",
+            va="top",
+            weight="regular",
+            color="#000099",
+        )
+
+
+def add_spines_annotation(ax):
+    color = "#000099"
+    ax.annotate(
+        "Spines",
+        xy=(4.0, 0.35),
+        xytext=(3.3, 0.5),
+        color=color,
         weight="regular",
-        color="#000099",
+        arrowprops=dict(arrowstyle="->", connectionstyle="arc3", color=color),
+    )
+
+    ax.annotate(
+        "",
+        xy=(3.15, 0.0),
+        xytext=(3.45, 0.45),
+        color=color,
+        weight="regular",
+        arrowprops=dict(arrowstyle="->", connectionstyle="arc3", color=color),
     )
 
 
-# Minor tick
-circle(0.50, -0.10)
-text(0.50, -0.32, "Minor tick label")
+def main() -> plt.Figure:
+    x, y1, y2, y3 = generate_data()
+    figure, ax = setup_plot()
+    set_major_minor_ticks(ax)
+    customize_ticks_and_grid(ax)
+    plot_signals(ax, x, y1, y2, y3)
+    add_annotations(ax)
+    add_spines_annotation(ax)
+    ax.set_title("Anatomy of a figure", fontsize=20, verticalalignment="bottom")
+    ax.set_xlabel("X axis label")
+    ax.set_ylabel("Y axis label")
+    ax.legend(loc="upper right")
+    return figure
 
-# Major tick
-circle(-0.03, 4.00)
-text(0.03, 3.80, "Major tick")
 
-# Minor tick
-circle(0.00, 3.50)
-text(0.00, 3.30, "Minor tick")
-
-# Major tick label
-circle(-0.15, 3.00)
-text(-0.15, 2.80, "Major tick label")
-
-# X Label
-circle(1.80, -0.27)
-text(1.80, -0.45, "X axis label")
-
-# Y Label
-circle(-0.27, 1.80)
-text(-0.27, 1.6, "Y axis label")
-
-# Title
-circle(1.60, 4.13)
-text(1.60, 3.93, "Title")
-
-# Blue plot
-circle(1.75, 2.80)
-text(1.75, 2.60, "Line\n(line plot)")
-
-# Red plot
-circle(1.20, 0.60)
-text(1.20, 0.40, "Line\n(line plot)")
-
-# Scatter plot
-circle(3.20, 1.75)
-text(3.20, 1.55, "Markers\n(scatter plot)")
-
-# Grid
-circle(3.00, 3.00)
-text(3.00, 2.80, "Grid")
-
-# Legend
-circle(3.70, 3.80)
-text(3.70, 3.60, "Legend")
-
-# Axes
-circle(0.5, 0.5)
-text(0.5, 0.3, "Axes")
-
-# Figure
-circle(-0.3, 0.65)
-text(-0.3, 0.45, "Figure")
-
-color = "#000099"
-ax.annotate(
-    "Spines",
-    xy=(4.0, 0.35),
-    xytext=(3.3, 0.5),
-    color=color,
-    weight="regular",  # fontsize="large", fontname="Yanone Kaffeesatz",
-    arrowprops=dict(arrowstyle="->", connectionstyle="arc3", color=color),
-)
-
-ax.annotate(
-    "",
-    xy=(3.15, 0.0),
-    xytext=(3.45, 0.45),
-    color=color,
-    weight="regular",  # fontsize="large", fontname="Yanone Kaffeesatz",
-    arrowprops=dict(arrowstyle="->", connectionstyle="arc3", color=color),
-)
-
-plt.savefig("../../docs/source/images/anatomy.png", dpi=600)
-plt.show()
+if __name__ == "__main__":
+    fig = main()
