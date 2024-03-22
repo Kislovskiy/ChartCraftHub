@@ -26,4 +26,8 @@ TODO: Add a notebook where we'll draw a dinosaur and add some linear algebra.
 Summary
 _______
 
+We've created a simple example of Plot abstraction in Seaborn, a library build on top of matplotlib.
+https://seaborn.pydata.org/generated/seaborn.objects.Plot.add.html
+When you watch the examples it's quite impressive what you can build with matplotlib. https://seaborn.pydata.org/examples/index.html
+
 

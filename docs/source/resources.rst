@@ -29,6 +29,9 @@ Matplotlib
     A Python crash course book has a chapter on data visualization and maptlotlib worth checking out.
     He also maintains several helpful cheat sheets, including one for Matplotlib, on his `website <https://ehmatthes.github.io/pcc_3e/cheat_sheets/>`_.
 
+* `Golden Ratio SymPy <https://github.com/sympy/sympy/blob/master/sympy/core/numbers.py#L3794-L3854>`_
+
+* `Golden Ratio Wiki <https://en.wikipedia.org/wiki/Golden_ratio>`_
 
 Libraries build on top of Matplotlib
 ------------------------------------

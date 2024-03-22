@@ -68,6 +68,13 @@ class Vector:
         )
         return Vector(new_start, new_end)
 
+    def multiply_constant(self, constant):
+        new_end = Point(
+            self.start.x + (self.end.x - self.start.x) * constant,
+            self.start.y + (self.end.y - self.start.y) * constant,
+        )
+        return Vector(self.start, new_end)
+
 
 class Polygon:
     def __init__(self, points):
