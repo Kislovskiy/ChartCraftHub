@@ -3,7 +3,7 @@ Terminology
 
 .. _terminology:
 
-Common vocabluary used
+Common vocabulary used
 ----------------------
 
 **Figure**
@@ -15,7 +15,7 @@ Common vocabluary used
 *v*
 1. play an important part.
 2. calculate arithmetically
-3. (figre someone/thing out) understand someone or something.
+3. (figure someone/thing out) understand someone or something.
 4. think; consider.
 
 

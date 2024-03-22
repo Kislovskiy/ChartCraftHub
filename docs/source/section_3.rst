@@ -9,6 +9,14 @@ In this section
 We will learn how to create and publish our visualization toolbox so that we can use it everywhere.
 Along the way, we will encounter some of the most common issues that arise when creating a package and how to solve them.
 
+This is a hands-on section with a live review of projects.
+
+We'll review:
+
+* https://github.com/Kislovskiy/ChartCraftHub
+
+* https://github.com/Kislovskiy/talks
+
 Python packages
 ---------------
 
@@ -23,4 +31,3 @@ Summary
 -------
 
 We've learned how to create and publish a Python package to PyPI.
-

@@ -1,6 +1,3 @@
-.. note::
-   The project is under active development. The documentation is not complete yet.
-
 A home for "Code, debug, reuse this chart" workshop docs. The code is available on `GitHub <https://github.com/Kislovskiy/ChartCraftHub/>`_.
 
 .. image:: images/amld_code_debug_reuse_this_chart.png
