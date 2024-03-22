@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Circle
 from matplotlib.patheffects import withStroke
-from matplotlib.ticker import AutoMinorLocator, MultipleLocator, FuncFormatter
+from matplotlib.ticker import AutoMinorLocator, FuncFormatter, MultipleLocator
 
 
 def format_minor_tick_value(value, _):
@@ -142,3 +142,7 @@ def main() -> plt.Figure:
 
 if __name__ == "__main__":
     fig = main()
+    save_path = "results/anatomy_of_figure.png"
+    fig.tight_layout()
+    fig.savefig(save_path, dpi=600)
+    print(f"Saved plot to {save_path}")

@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 import collections
+from dataclasses import dataclass
 
 
 @dataclass
