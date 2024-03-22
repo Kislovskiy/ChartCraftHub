@@ -228,17 +228,48 @@ The output is parsed and formatted by the `rich` library, which makes it easy to
 With this you are equipped to start exploring any codebase and understand how it works.
 We'll do it with Matplotlib.
 
-TODO: link to the jupyter notebook section2.
+Practice
+~~~~~~~~
+
+Let's jump into the code and start exploring Matplotlib.
+https://github.com/Kislovskiy/ChartCraftHub/blob/trunk/src/chartcrafthub/chapter_1_0.ipynb
+
+List of Exercises
+~~~~~~~~~~~~~~~~~
+
+Exercise 1
+----------
+**Description:**
+
+Use the editor of your choice: HTML, GoogleDocs, Word, Pages... Create a page that looks like it was created with LaTeX.
+
+.. figure:: images/cmf10_html_example.png
+   :alt: example of html page with uniform font properties
+   :align: center
+   :width: 398
+
+Exercise 2
+-----------
+
+**Description**
+
+Following the `chapter_2_1.ipynb` create a code to generate a figure below.
+
+.. figure:: images/common_chart_xkcd.png
+   :alt: common_chart_in_xkcd_style
+   :align: center
+   :width: 600
 
 Summary
 ~~~~~~~
 
 We've learned about two most powerful objects in Matplotlib: Figure and Axes.
-They are always coming toghether and are the foundation of any plot.
+They are always coming together and are the foundation of any plot.
 
 There are two most important things I want you to remember:
 
 First:
+------
 
 .. code-block:: python
 
@@ -261,17 +292,21 @@ First:
     plt.show()
 
 
-Note: that the font should be installed on your system.
-One gotcha is that matplotlib stores fonts available on your system in .matplotlib folder in your home directory.
-To see the newly installed font, you need to remove the font cache file.
 
-.. code-block:: bash
+.. note::
 
-    ~ ❯❯❯ la .matplotlib
-    Permissions Size User       Date Modified Name
-    .rw-r--r--@ 140k kislovskiy 15 Mar 22:11  fontlist-v330.json
+    Note: that the font should be installed on your system.
+    One gotcha is that matplotlib stores fonts available on your system in .matplotlib folder in your home directory.
+    To see the newly installed font, you need to remove the font cache file.
+
+    .. code-block:: bash
+
+        ~ ❯❯❯ la .matplotlib
+        Permissions Size User       Date Modified Name
+        .rw-r--r--@ 140k kislovskiy 15 Mar 22:11  fontlist-v330.json
 
 Second:
+-------
 
 .. code-block:: python
 
