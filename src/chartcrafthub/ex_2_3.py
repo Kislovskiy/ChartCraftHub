@@ -37,6 +37,6 @@ def main():
 
 if __name__ == "__main__":
     fig = main()
-    save_path = "results/ex_2_3.svg"
-    fig.savefig(save_path)
+    save_path = "results/ex_2_3.png"
+    fig.savefig(save_path, dpi=600)
     logger.info(f"Saved plot to {save_path}")
