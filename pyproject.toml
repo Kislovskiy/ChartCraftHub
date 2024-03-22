@@ -2,7 +2,7 @@
 
 [project]
 name = "chartcrafthub"
-version = "0.1.5"
+version = "1.0.0"
 description = "Code, debug, reuse this chart, workshop materials and more."
 license = {file = "LICENSE", name = "MIT"}
 classifiers = [
@@ -26,6 +26,10 @@ authors = [
     {name = "Teresa Kubacka", email = "teresa@xurce.ch"}
 ]
 
+[project.urls]
+Homepage = "https://github.com/Kislovskiy/ChartCraftHub"
+Documenation = "https://kislovskiy.github.io/ChartCraftHub/"
+
 [build-system]
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
@@ -46,7 +50,7 @@ docs = [
 ]
 
 [tool.bumpver]
-current_version = "0.1.5"
+current_version = "1.0.0"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message  = "bump version {old_version} -> {new_version}"
 commit          = false
