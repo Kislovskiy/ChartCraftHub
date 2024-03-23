@@ -12,19 +12,11 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
-from rich.logging import RichHandler
+
+from chartcrafthub.utils import setup_logger
 
 # Configure rich logging
 logger = logging.getLogger(__name__)
-
-
-def setup_logger() -> None:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(message)s",
-        datefmt="[%X]",
-        handlers=[RichHandler()],
-    )
 
 
 def main() -> plt.Figure:

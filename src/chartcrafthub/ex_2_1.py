@@ -10,10 +10,10 @@ $ python ex_2_1.py
 import logging
 
 from abstractions import Point
-from ex_1_1 import setup_logger
+
+from chartcrafthub.utils import setup_logger
 
 logger = logging.getLogger(__name__)
-setup_logger()
 
 
 class Vector:
@@ -44,6 +44,7 @@ class Vector:
 
 
 if __name__ == "__main__":
+    setup_logger()
     start = Point(0, 0)
     end = Point(1, 1)
     vector = Vector(start, end)

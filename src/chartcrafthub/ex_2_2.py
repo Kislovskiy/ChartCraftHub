@@ -13,7 +13,6 @@ from abstractions import Plot, Point, Vector
 from ex_1_1 import setup_logger
 
 logger = logging.getLogger(__name__)
-setup_logger()
 
 
 def main():
@@ -67,6 +66,7 @@ def main():
 
 
 if __name__ == "__main__":
+    setup_logger()
     fig = main()
     save_path = "results/dino_ex_2_2.png"
     fig.savefig(save_path, dpi=600)

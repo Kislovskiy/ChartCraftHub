@@ -9,11 +9,11 @@ import logging
 from pathlib import Path
 
 import numpy as np
-from ex_1_1 import setup_logger
 from matplotlib import pyplot as plt
 
+from chartcrafthub.utils import setup_logger
+
 logger = logging.getLogger(__name__)
-setup_logger()
 
 
 def y(x):
@@ -21,6 +21,7 @@ def y(x):
 
 
 def main():
+    setup_logger()
     figure, ax = plt.subplots(figsize=(6, 4))
 
     ax.set_title("Title", loc="left", fontweight="bold", fontsize=18, pad=20)

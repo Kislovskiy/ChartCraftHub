@@ -1,12 +1,12 @@
 import logging
 from io import BytesIO
 
-from ex_1_1 import setup_logger
 from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 
+from chartcrafthub.utils import setup_logger
+
 logger = logging.getLogger(__name__)
-setup_logger()
 
 
 def render_hello_world_image(dpi):
@@ -48,6 +48,7 @@ def plot_images(images):
 
 
 if __name__ == "__main__":
+    setup_logger()
     dpis = [10, 100, 300, 600]
     hello_world_images = [render_hello_world_image(dpi) for dpi in dpis]
     common_width, common_height = get_common_size(hello_world_images)

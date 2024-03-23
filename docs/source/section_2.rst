@@ -123,7 +123,6 @@ Summary
 ~~~~~~~
 
 
-
 We've created a simple example of Plot abstraction in Seaborn, a library built on top of matplotlib.
 https://seaborn.pydata.org/generated/seaborn.objects.Plot.add.html
 

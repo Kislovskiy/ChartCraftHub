@@ -2,7 +2,7 @@
 
 [project]
 name = "chartcrafthub"
-version = "1.0.1"
+version = "1.0.2"
 description = "Code, debug, reuse this chart, workshop materials and more."
 license = {file = "LICENSE", name = "MIT"}
 classifiers = [
@@ -50,7 +50,7 @@ docs = [
 ]
 
 [tool.bumpver]
-current_version = "1.0.1"
+current_version = "1.0.2"
 version_pattern = "MAJOR.MINOR.PATCH"
 commit_message  = "bump version {old_version} -> {new_version}"
 commit          = false
