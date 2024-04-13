@@ -1,13 +1,9 @@
 name: "ChartCraftHub Lint"
+run-name: "BUILD - CI Python (${{ github.event_name }})"
+
 on:
   pull_request:
-    paths:
-      - "**.py"
-      - "**.ipynb"
   push:
-    paths:
-      - "**.py"
-      - "**.ipynb"
     branches:
       - trunk
 
@@ -19,14 +15,32 @@ env:
   PYTHON_VERSION: 3.12.1
 
 jobs:
+  changes:
+    name: 🔄 Check out changes
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    permissions:
+      pull-requests: read
+    outputs:
+      changes: ${{ steps.filter.outputs.changes }}
+    steps:
+    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+    - name: Check for backend file changes
+      uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 #v3.0.2
+      id: changes
+      with:
+        filters: |
+          changes:
+          - "**.py"
+          - "**.ipynb"
   ci:
     name: 🛠️ Setup Python environment
+    if: needs.changes.outputs.changes == 'true'
+    needs: changes
     runs-on: ubuntu-latest
     steps:
       - name: Setup Python environment
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}

@@ -1,4 +1,5 @@
 name: "Sphinx: Render docs"
+run-name: "BUILD - Docs (${{ github.event_name }})"
 
 on:
   push:
@@ -18,9 +19,6 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-
     - uses: actions/setup-python@v5
       with:
         python-version: "3.12.x"
@@ -39,7 +37,7 @@ jobs:
         name: html-docs
         path: docs/build/html/
     - name: Deploy
-      uses: peaceiris/actions-gh-pages@v4
+      uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/trunk'
       with:
         publish_branch: gh-pages
