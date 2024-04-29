@@ -46,7 +46,7 @@ dev = [
 ]
 docs = [
     "sphinx==7.3.7",
-    "furo==2024.01.29",
+    "furo==2024.4.27",
 ]
 
 [tool.bumpver]
