@@ -14,7 +14,7 @@ keywords = ["matplotlib", "visuzlization", "tutorial"]
 readme = "README.md"
 dependencies = [
     "jupyter==1.0.0",
-    "matplotlib==3.9.1",
+    "matplotlib==3.10.0",
     "numpy==2.0.1",
     "aquarel==0.0.6",
     "seaborn==0.13.2",
